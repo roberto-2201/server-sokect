@@ -29,24 +29,37 @@ const PORT = 3000;
 
 const io = require('socket.io')(server, {
     cors: {
-        origins: ['http://192.168.0.4:4200']
+        origins: ['http://192.168.0.9:4200']
     }
 })
 
 io.on('connection', (socket) => {
   
     //Recibir cordenada de movil
-    socket.on('posicion:bus1', (ubicacion) => {
+    socket.on('Unidad003', (ubicacion) => {
          const newCord=ubicacion.split(',');
-         console.log(newCord);
-         /*
+         console.log('UNI3:',newCord);         /*
        const cors =[parseFloat(newCord[1]),parseFloat(newCord[0])];
-       console.log('Server:', cors); */
-       
-       io.sockets.emit('position', ubicacion);
-
-      
+       console.log('Server:', cors); */       
+       io.sockets.emit('UNI3', ubicacion);      
     });
+
+     //UNIDAD2
+    socket.on('Unidad002', (ubicacion) => {
+        const newCord=ubicacion.split(',');
+        console.log('UNI2:',newCord);         /*
+      const cors =[parseFloat(newCord[1]),parseFloat(newCord[0])];
+      console.log('Server:', cors); */       
+      io.sockets.emit('UNI2', ubicacion);      
+   });
+
+   socket.on('Unidad001', (ubicacion) => {
+    const newCord=ubicacion.split(',');
+    console.log('UNI1:',newCord);         /*
+  const cors =[parseFloat(newCord[1]),parseFloat(newCord[0])];
+  console.log('Server:', cors); */       
+  io.sockets.emit('UNI1', ubicacion);      
+});
 
    
     /* const counter = setInterval(() => {
@@ -79,4 +92,4 @@ io.on('connection', (socket) => {
 
 
 
-server.listen(PORT, () => console.log('Todo bien !!'))
+server.listen(PORT, () => console.log('Todo bien !! in port:'+PORT))
