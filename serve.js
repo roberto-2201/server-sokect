@@ -25,11 +25,11 @@ const rutaTunas=[
 ];
 app.use(cors());
 
-const PORT = 3000;
+const PORT = 3001;
 
 const io = require('socket.io')(server, {
     cors: {
-        origins: ['http://192.168.0.9:4200']
+        origins: ['http://34.125.241.176']
     }
 })
 
