@@ -25,7 +25,7 @@ const rutaTunas=[
 ];
 app.use(cors());
 
-const PORT = 3001;
+const PORT = 3000;
 
 const io = require('socket.io')(server, {
     cors: {
