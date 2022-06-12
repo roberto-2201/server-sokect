@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const { log } = require('console');
 const app = express();
 const server = require('http').Server(app);
 
@@ -25,11 +24,12 @@ const rutaTunas=[
 ];
 app.use(cors());
 
-const PORT = 3000;
+const PORT = 3002;
 
 const io = require('socket.io')(server, {
     cors: {
-        origins: ['http://34.125.241.176']
+        // IP SERVER ANGULAR
+        origins: ['http://192.168.0.9']
     }
 })
 
@@ -89,7 +89,4 @@ io.on('connection', (socket) => {
     
 });
 
-
-
-
-server.listen(PORT, () => console.log('Todo bien !! in port:'+PORT))
+server.listen(PORT, () => console.log('Todo bien !! in port:'+PORT));
