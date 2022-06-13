@@ -29,7 +29,7 @@ const PORT = 3002;
 const io = require('socket.io')(server, {
     cors: {
         // IP SERVER ANGULAR
-        origins: ['http://192.168.0.9']
+        origins: ['http://34.66.94.32']
     }
 })
 
